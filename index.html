@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Beauty | Perfumes e Cosméticos</title>
+  <meta name="description" content="Lumina Beauty: perfumes, cosméticos, maquiagem e cuidados com a pele em um só lugar. Descubra fragrâncias marcantes e produtos que valorizam o seu melhor.">
+
+  <!-- Folha de estilos (a ser criada em css/style.css) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Script principal (a ser criado em js/main.js) -->
+  <script src="js/main.js" defer></script>
+</head>
+
+<body id="topo">
+  <!-- Link de atalho para leitores de tela e navegação por teclado -->
+  <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
+
+  <!-- ============================================================
+       A. CABEÇALHO
+       ============================================================ -->
+  <header class="site-header" id="cabecalho">
+    <div class="site-header__container">
+
+      <!-- Logotipo textual -->
+      <a class="logo" href="index.html" aria-label="Lumina Beauty - Página inicial">
+        <span class="logo__nome">LUMINA BEAUTY</span>
+        <span class="logo__subtitulo">Perfumes e Cosméticos</span>
+      </a>
+
+      <!-- Campo de pesquisa (lógica de busca será implementada em js/main.js) -->
+      <form class="search-form" id="form-busca" role="search" action="#" method="get">
+        <label class="visually-hidden" for="campo-busca">Buscar produtos</label>
+        <input class="search-form__input" type="search" id="campo-busca" name="q" placeholder="Buscar perfumes, cosméticos e maquiagem..." autocomplete="off">
+        <button class="search-form__button" type="submit" id="botao-busca">
+          <span aria-hidden="true">🔍</span>
+          <span class="visually-hidden">Pesquisar</span>
+        </button>
+      </form>
+
+      <!-- Ações do usuário -->
+      <div class="header-actions">
+        <a class="header-actions__link" id="link-conta" href="paginas/clientes.html">
+          <span aria-hidden="true">👤</span>
+          <span class="header-actions__texto">Entrar / Minha conta</span>
+        </a>
+
+        <!-- Favoritos: destino provisório -->
+        <a class="header-actions__link" id="link-favoritos" href="#favoritos-provisorio">
+          <span aria-hidden="true">♡</span>
+          <span class="header-actions__texto">Favoritos</span>
+        </a>
+
+        <a class="header-actions__link header-actions__link--carrinho" id="link-carrinho" href="paginas/carrinho.html">
+          <span aria-hidden="true">🛍</span>
+          <span class="header-actions__texto">Carrinho</span>
+          <span class="cart-count" id="contador-carrinho" aria-live="polite">0</span>
+          <span class="visually-hidden">itens no carrinho</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         B. MENU DE NAVEGAÇÃO
+         ============================================================ -->
+    <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
+      <button class="main-nav__toggle" id="botao-menu" type="button" aria-expanded="false" aria-controls="lista-menu">
+        <span aria-hidden="true">☰</span> Menu
+      </button>
+      <ul class="main-nav__list" id="lista-menu">
+        <li><a class="main-nav__link" href="index.html" aria-current="page">Início</a></li>
+        <li><a class="main-nav__link" href="paginas/perfumes.html">Perfumes</a></li>
+        <li><a class="main-nav__link" href="paginas/cosmeticos.html">Cosméticos</a></li>
+        <li><a class="main-nav__link" href="paginas/maquiagem.html">Maquiagem</a></li>
+        <!-- Destinos provisórios: páginas ainda não implementadas -->
+        <li><a class="main-nav__link" href="#cuidados-pele-provisorio">Cuidados com a Pele</a></li>
+        <li><a class="main-nav__link" href="#ofertas-provisorio">Ofertas</a></li>
+        <li><a class="main-nav__link" href="#mais-vendidos-provisorio">Mais Vendidos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ============================================================
+         C. BANNER PRINCIPAL
+         ============================================================ -->
+    <section class="hero" id="banner-principal" aria-labelledby="titulo-hero">
+      <div class="hero__conteudo">
+        <h1 class="hero__titulo" id="titulo-hero">Sua beleza, sua essência.</h1>
+        <p class="hero__subtitulo">Descubra fragrâncias marcantes e produtos que valorizam o seu melhor.</p>
+        <p class="hero__texto">Encontre seus favoritos em um só lugar.</p>
+        <a class="btn btn--primary" id="botao-explorar" href="#produtos-destaque">Explorar Produtos</a>
+      </div>
+      <div class="hero__imagem">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80"
+             alt="Frascos de perfume elegantes e produtos de beleza dispostos sobre uma superfície clara"
+             width="900" height="700">
+      </div>
+    </section>
+
+    <!-- ============================================================
+         D. CATEGORIAS DE PRODUTOS
+         ============================================================ -->
+    <section class="categorias" id="categorias" aria-labelledby="titulo-categorias">
+      <h2 class="section-title" id="titulo-categorias">Explore nossas categorias</h2>
+
+      <div class="categorias__grid">
+        <article class="card-categoria" id="categoria-perfumes" data-categoria="perfumes">
+          <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80"
+               alt="Coleção de frascos de perfume em tons dourados" width="600" height="400" loading="lazy">
+          <h3 class="card-categoria__nome">Perfumes</h3>
+          <p class="card-categoria__descricao">Fragrâncias femininas, masculinas e unissex para todos os momentos.</p>
+          <a class="btn btn--secondary" href="paginas/perfumes.html">Ver produtos <span class="visually-hidden">de Perfumes</span></a>
+        </article>
+
+        <article class="card-categoria" id="categoria-cosmeticos" data-categoria="cosmeticos">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
+               alt="Frascos e potes de cosméticos organizados sobre uma bancada" width="600" height="400" loading="lazy">
+          <h3 class="card-categoria__nome">Cosméticos</h3>
+          <p class="card-categoria__descricao">Itens de beleza e bem-estar para a sua rotina diária.</p>
+          <a class="btn btn--secondary" href="paginas/cosmeticos.html">Ver produtos <span class="visually-hidden">de Cosméticos</span></a>
+        </article>
+
+        <article class="card-categoria" id="categoria-maquiagem" data-categoria="maquiagem">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80"
+               alt="Batons, pincéis e paletas de maquiagem em cores suaves" width="600" height="400" loading="lazy">
+          <h3 class="card-categoria__nome">Maquiagem</h3>
+          <p class="card-categoria__descricao">Batons, bases, sombras e acessórios para realçar a sua beleza.</p>
+          <a class="btn btn--secondary" href="paginas/maquiagem.html">Ver produtos <span class="visually-hidden">de Maquiagem</span></a>
+        </article>
+
+        <article class="card-categoria" id="categoria-cuidados-pele" data-categoria="cuidados-com-a-pele">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80"
+               alt="Produtos de cuidados com a pele, como séruns e cremes, ao lado de folhas verdes" width="600" height="400" loading="lazy">
+          <h3 class="card-categoria__nome">Cuidados com a Pele</h3>
+          <p class="card-categoria__descricao">Séruns, hidratantes e rituais de cuidado para o dia a dia.</p>
+          <!-- Destino provisório: página ainda não implementada -->
+          <a class="btn btn--secondary" href="#cuidados-pele-provisorio">Ver produtos <span class="visually-hidden">de Cuidados com a Pele</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         E. PRODUTOS EM DESTAQUE
+         Observação: produtos, marcas e preços abaixo são fictícios,
+         criados apenas para demonstração, sem vínculo com marcas reais.
+         ============================================================ -->
+    <section class="produtos-destaque" id="produtos-destaque" aria-labelledby="titulo-destaques">
+      <h2 class="section-title" id="titulo-destaques">Produtos em Destaque</h2>
+      <p class="section-note">Produtos de demonstração, com informações fictícias.</p>
+
+      <div class="produtos__grid" id="lista-produtos-destaque">
+
+        <!-- Produto 1 -->
+        <article class="card-produto" id="produto-001" data-id="001" data-nome="Perfume Aurora Eau de Parfum" data-marca="Maison Aurora" data-categoria="perfumes" data-preco="189.90" data-volume="100 ml">
+          <span class="selo selo--mais-vendido">Mais Vendido</span>
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="001" aria-pressed="false" aria-label="Favoritar Perfume Aurora Eau de Parfum">♡</button>
+          <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=500&q=80"
+               alt="Frasco de perfume Aurora Eau de Parfum de 100 ml" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Maison Aurora</p>
+            <h3 class="card-produto__nome">Perfume Aurora Eau de Parfum</h3>
+            <p class="card-produto__volume">100 ml</p>
+            <p class="card-produto__preco"><span class="preco-atual">R$ 189,90</span></p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="001">Adicionar ao Carrinho</button>
+        </article>
+
+        <!-- Produto 2 -->
+        <article class="card-produto" id="produto-002" data-id="002" data-nome="Perfume Essence Floral" data-marca="Essence Atelier" data-categoria="perfumes" data-preco="149.90" data-volume="75 ml">
+          <span class="selo selo--oferta">Oferta</span>
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="002" aria-pressed="false" aria-label="Favoritar Perfume Essence Floral">♡</button>
+          <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=500&q=80"
+               alt="Frasco de perfume floral Essence de 75 ml" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Essence Atelier</p>
+            <h3 class="card-produto__nome">Perfume Essence Floral</h3>
+            <p class="card-produto__volume">75 ml</p>
+            <p class="card-produto__preco">
+              <del class="preco-original">R$ 179,90</del>
+              <span class="preco-atual">R$ 149,90</span>
+            </p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="002">Adicionar ao Carrinho</button>
+        </article>
+
+        <!-- Produto 3 -->
+        <article class="card-produto" id="produto-003" data-id="003" data-nome="Sérum Facial Vitamina C" data-marca="Clara Skin" data-categoria="cuidados-com-a-pele" data-preco="59.90" data-volume="30 ml">
+          <span class="selo selo--mais-vendido">Mais Vendido</span>
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="003" aria-pressed="false" aria-label="Favoritar Sérum Facial Vitamina C">♡</button>
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80"
+               alt="Frasco com conta-gotas de sérum facial de vitamina C de 30 ml" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Clara Skin</p>
+            <h3 class="card-produto__nome">Sérum Facial Vitamina C</h3>
+            <p class="card-produto__volume">30 ml</p>
+            <p class="card-produto__preco"><span class="preco-atual">R$ 59,90</span></p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="003">Adicionar ao Carrinho</button>
+        </article>
+
+        <!-- Produto 4 -->
+        <article class="card-produto" id="produto-004" data-id="004" data-nome="Hidratante Corporal Vanilla" data-marca="Doce Pele" data-categoria="cosmeticos" data-preco="39.90" data-volume="200 g">
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="004" aria-pressed="false" aria-label="Favoritar Hidratante Corporal Vanilla">♡</button>
+          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=500&q=80"
+               alt="Pote de hidratante corporal Vanilla de 200 gramas" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Doce Pele</p>
+            <h3 class="card-produto__nome">Hidratante Corporal Vanilla</h3>
+            <p class="card-produto__volume">200 g</p>
+            <p class="card-produto__preco"><span class="preco-atual">R$ 39,90</span></p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="004">Adicionar ao Carrinho</button>
+        </article>
+
+        <!-- Produto 5 -->
+        <article class="card-produto" id="produto-005" data-id="005" data-nome="Batom Matte Rosé" data-marca="Rosa Viva" data-categoria="maquiagem" data-preco="29.90" data-volume="1 unidade">
+          <span class="selo selo--oferta">Oferta</span>
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="005" aria-pressed="false" aria-label="Favoritar Batom Matte Rosé">♡</button>
+          <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80"
+               alt="Batom matte na cor rosé aberto sobre fundo neutro" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Rosa Viva</p>
+            <h3 class="card-produto__nome">Batom Matte Rosé</h3>
+            <p class="card-produto__volume">1 unidade</p>
+            <p class="card-produto__preco">
+              <del class="preco-original">R$ 39,90</del>
+              <span class="preco-atual">R$ 29,90</span>
+            </p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="005">Adicionar ao Carrinho</button>
+        </article>
+
+        <!-- Produto 6 -->
+        <article class="card-produto" id="produto-006" data-id="006" data-nome="Kit Presente Beauty Collection" data-marca="Lumina Beauty" data-categoria="kits" data-preco="129.90" data-volume="Kit">
+          <span class="selo selo--mais-vendido">Mais Vendido</span>
+          <button class="btn-favorito" type="button" data-acao="favoritar" data-id="006" aria-pressed="false" aria-label="Favoritar Kit Presente Beauty Collection">♡</button>
+          <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?auto=format&fit=crop&w=500&q=80"
+               alt="Kit de presente com produtos de beleza em embalagem elegante" width="500" height="500" loading="lazy">
+          <div class="card-produto__info">
+            <p class="card-produto__marca">Lumina Beauty</p>
+            <h3 class="card-produto__nome">Kit Presente Beauty Collection</h3>
+            <p class="card-produto__volume">Kit com itens variados</p>
+            <p class="card-produto__preco"><span class="preco-atual">R$ 129,90</span></p>
+          </div>
+          <button class="btn btn--primary" type="button" data-acao="adicionar-ao-carrinho" data-id="006">Adicionar ao Carrinho</button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         F. FAIXA PROMOCIONAL
+         ============================================================ -->
+    <section class="faixa-promocional" id="faixa-promocional" aria-labelledby="titulo-promo">
+      <h2 class="faixa-promocional__titulo" id="titulo-promo">Seu próximo favorito está aqui!</h2>
+      <p class="faixa-promocional__texto">Encontre produtos especiais para você ou para presentear quem ama.</p>
+      <!-- Destino provisório: página de ofertas ainda não implementada -->
+      <a class="btn btn--primary" id="botao-ofertas" href="#ofertas-provisorio">Conferir Ofertas</a>
+    </section>
+
+    <!-- ============================================================
+         G. BENEFÍCIOS
+         ============================================================ -->
+    <section class="beneficios" id="beneficios" aria-labelledby="titulo-beneficios">
+      <h2 class="section-title" id="titulo-beneficios">Por que comprar na Lumina</h2>
+
+      <ul class="beneficios__lista">
+        <li class="beneficio">
+          <span class="beneficio__icone" aria-hidden="true">🔒</span>
+          <h3 class="beneficio__titulo">Compra segura</h3>
+          <p class="beneficio__descricao">Uma experiência de compra pensada para ser simples e tranquila.</p>
+        </li>
+        <li class="beneficio">
+          <span class="beneficio__icone" aria-hidden="true">✨</span>
+          <h3 class="beneficio__titulo">Produtos selecionados</h3>
+          <p class="beneficio__descricao">Uma curadoria de perfumes e cosméticos para diferentes estilos.</p>
+        </li>
+        <li class="beneficio">
+          <span class="beneficio__icone" aria-hidden="true">🏷️</span>
+          <h3 class="beneficio__titulo">Ofertas especiais</h3>
+          <p class="beneficio__descricao">Promoções em itens selecionados ao longo do ano.</p>
+        </li>
+        <li class="beneficio">
+          <span class="beneficio__icone" aria-hidden="true">💬</span>
+          <h3 class="beneficio__titulo">Atendimento personalizado</h3>
+          <p class="beneficio__descricao">Ajuda para encontrar o produto certo para você.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         H. NOVIDADES
+         ============================================================ -->
+    <section class="novidades" id="novidades" aria-labelledby="titulo-novidades">
+      <h2 class="section-title" id="titulo-novidades">Novidades da Lumina</h2>
+
+      <div class="novidades__grid">
+        <article class="card-novidade" id="novidade-001" data-id="101" data-nome="Eau de Parfum Noite Dourada" data-preco="169.90">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80"
+               alt="Frasco de perfume Noite Dourada com tampa dourada" width="500" height="500" loading="lazy">
+          <h3 class="card-novidade__nome">Eau de Parfum Noite Dourada</h3>
+          <p class="card-novidade__preco">R$ 169,90</p>
+          <a class="btn btn--secondary" href="paginas/perfumes.html#produto-101">Conhecer produto <span class="visually-hidden">Eau de Parfum Noite Dourada</span></a>
+        </article>
+
+        <article class="card-novidade" id="novidade-002" data-id="102" data-nome="Paleta de Sombras Terra Rosada" data-preco="79.90">
+          <img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a07?auto=format&fit=crop&w=500&q=80"
+               alt="Paleta de sombras em tons terrosos e rosados" width="500" height="500" loading="lazy">
+          <h3 class="card-novidade__nome">Paleta de Sombras Terra Rosada</h3>
+          <p class="card-novidade__preco">R$ 79,90</p>
+          <a class="btn btn--secondary" href="paginas/maquiagem.html#produto-102">Conhecer produto <span class="visually-hidden">Paleta de Sombras Terra Rosada</span></a>
+        </article>
+
+        <article class="card-novidade" id="novidade-003" data-id="103" data-nome="Creme Facial Hidratante Dia" data-preco="64.90">
+          <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=500&q=80"
+               alt="Pote de creme facial hidratante sobre fundo claro" width="500" height="500" loading="lazy">
+          <h3 class="card-novidade__nome">Creme Facial Hidratante Dia</h3>
+          <p class="card-novidade__preco">R$ 64,90</p>
+          <a class="btn btn--secondary" href="paginas/cosmeticos.html#produto-103">Conhecer produto <span class="visually-hidden">Creme Facial Hidratante Dia</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         I. NEWSLETTER
+         ============================================================ -->
+    <section class="newsletter" id="newsletter" aria-labelledby="titulo-newsletter">
+      <h2 class="newsletter__titulo" id="titulo-newsletter">Receba novidades e ofertas</h2>
+      <p class="newsletter__texto">Cadastre seu e-mail para acompanhar lançamentos e promoções.</p>
+
+      <!-- Formulário sem envio: será integrado a um serviço de cadastro no futuro -->
+      <form class="newsletter__form" id="form-newsletter" action="#" method="post" novalidate>
+        <label class="newsletter__label" for="email-newsletter">Seu e-mail</label>
+        <input class="newsletter__input" type="email" id="email-newsletter" name="email" placeholder="nome@exemplo.com" autocomplete="email" required>
+        <button class="btn btn--primary" type="submit" id="botao-newsletter">Quero receber novidades</button>
+        <p class="newsletter__mensagem" id="mensagem-newsletter" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="newsletter__aviso">A inscrição ainda não está ativa: ela será integrada posteriormente a um serviço de cadastro.</p>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       J. RODAPÉ
+       ============================================================ -->
+  <footer class="site-footer" id="rodape">
+    <div class="site-footer__colunas">
+
+      <section class="footer-coluna" aria-labelledby="rodape-sobre">
+        <h2 class="footer-coluna__titulo" id="rodape-sobre">Sobre a Lumina</h2>
+        <ul class="footer-coluna__lista">
+          <li><a href="#quem-somos-provisorio">Quem somos</a></li>
+          <li><a href="#missao-provisorio">Nossa missão</a></li>
+          <li><a href="#contato-provisorio">Contato</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-coluna" aria-labelledby="rodape-atendimento">
+        <h2 class="footer-coluna__titulo" id="rodape-atendimento">Atendimento</h2>
+        <ul class="footer-coluna__lista">
+          <li><a href="#faq-provisorio">Perguntas frequentes</a></li>
+          <li><a href="#trocas-provisorio">Trocas e devoluções</a></li>
+          <li><a href="#privacidade-provisorio">Política de privacidade</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-coluna" aria-labelledby="rodape-conta">
+        <h2 class="footer-coluna__titulo" id="rodape-conta">Minha conta</h2>
+        <ul class="footer-coluna__lista">
+          <li><a href="paginas/clientes.html">Entrar</a></li>
+          <li><a href="paginas/pedidos.html">Meus pedidos</a></li>
+          <li><a href="#favoritos-provisorio">Favoritos</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-coluna" aria-labelledby="rodape-contato">
+        <h2 class="footer-coluna__titulo" id="rodape-contato">Contato</h2>
+        <ul class="footer-coluna__lista">
+          <li>E-mail (demonstrativo): contato@exemplo.com</li>
+          <li id="espaco-whatsapp"><!-- Espaço reservado para WhatsApp --><span>WhatsApp: em breve</span></li>
+          <li id="espaco-redes-sociais"><!-- Espaço reservado para redes sociais --><span>Redes sociais: em breve</span></li>
+        </ul>
+      </section>
+
+    </div>
+
+    <div class="site-footer__base">
+      <p class="site-footer__marca">Lumina Beauty</p>
+      <p class="site-footer__copyright">&copy; 2026 Lumina Beauty. Todos os direitos reservados. Site de demonstração com produtos fictícios.</p>
+      <ul class="site-footer__legal">
+        <li><a href="#termos-provisorio">Termos de uso</a></li>
+        <li><a href="#privacidade-provisorio">Política de privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
